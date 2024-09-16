@@ -1,0 +1,39 @@
+replicaCount: 1
+
+# Jenkins admin credentials
+admin:
+  user: admin
+  password: Zqec369!@
+
+# Ingress settings
+ingress:
+  enabled: true
+  hostname: jenkins.buyexpressnow.com
+  tls: false
+
+# Resource limits
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+# Persistence
+persistence:
+  enabled: true
+  size: 10Gi
+
+# Horizontal Pod Autoscaler
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 70
+
+
+service:
+  type: LoadBalancer
+  port: 8080
+  targetPort: 8080
